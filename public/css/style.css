@@ -1,0 +1,227 @@
+@font-face {
+  font-family: 'Liberation_SansRegular';
+  src: url('/fonts/liberationsans-regular.eot');
+  src: url('/fonts/liberationsans-regular.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/liberationsans-regular.woff') format('woff'),
+       url('/fonts/liberationsans-regular.ttf') format('truetype'),
+       url('/fonts/liberationsans-regular.svg#Liberation_SansRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'Liberation_MonoRegular';
+    src: url('/fonts/liberationmono-regular-webfont.eot');
+    src: url('/fonts/liberationmono-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/liberationmono-regular-webfont.woff') format('woff'),
+         url('/fonts/liberationmono-regular-webfont.ttf') format('truetype'),
+         url('/fonts/liberationmono-regular-webfont.svg#liberation_monoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.navbar-brand {
+  margin-right: 0.5em;
+}
+
+.navbar-static-top {
+  margin: 0;
+  color: #07012C;
+}
+
+i.fa {
+  font-size: 17px;
+}
+
+.navbar-static-top a {
+  color: #07012C;
+}
+
+.navbar-nav li.active {
+  background-color: #EEEEEE;
+}
+
+.navbar-static-top span.icon-bar {
+  background-color: #07012C;
+}
+
+.page-title-block *, .page-content *, .footer * {
+  font-family: 'Liberation_SansRegular', sans-serif;
+  color: #07012C;
+}
+
+.page-title-block {
+  background-color: #004032;
+  margin: 0;
+  padding-top: 6em; 
+  padding-bottom: 6em;
+  background-image: url(/images/site/background.png);
+}
+
+.page-title-block h1 {
+  color: #EEE;
+  font-size: 2.8em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.page-title-block .subtext {
+  color: #BBB;
+  font-size: 1.5em;
+}
+
+.page-title-block .posted {
+  color: #BBB;
+  font-size: 1em;
+  margin: -0.3em 0 -1.2em 0;
+  padding: 0;
+  text-align: right;
+}
+
+.page-title-block .container, .page-content .container {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.page-content .container {
+  margin-top: 3em;
+  margin-bottom: 5em;
+}
+
+.page-content h2 {
+  font-family: 'Liberation_Sans', sans-serif;
+  font-weight: bold;
+  font-size: 17pt;
+  margin: 1.5em 0 0 0;
+}
+
+.page-content p, .page-content ul, .content dl {
+  margin: 0.8em 0;
+}
+
+.page-content dt {
+  font-weight: normal;
+}
+
+.page-content dd {
+  margin: 0 0 0.5em 1em;
+}
+
+.page-content {
+  font-size: 15pt; 
+}
+
+.page-content a {
+  text-decoration: underline;
+  color: #0D6AB8;
+}
+
+.page-content a:hover {
+  color: #4296DB;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -5.5em;
+}
+
+.footer, .push {
+  height: 4em;
+}
+
+.footer {
+  border-top: 1.5em solid #004032;
+  padding: 0.7em 1em 0.7em 0.5em;
+  font-size: 1.3em;
+  text-align: right;
+}
+
+.blogdd p {
+  margin: 0;
+  padding: 0;
+}
+
+.blogdate {
+  font-size: 10pt;
+}
+
+.addon-panel {
+  display: inline-block;
+  vertical-align: top;
+  width: 49%;
+  padding: 0 0.7em;
+}
+
+.addon-panel p, .addon-panel ul {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.addon-panel li {
+  list-style: none;
+}
+
+.addon-panel-left {
+  text-align: right;
+  border-right: 1px solid #DDD;
+  padding-right: 1em;
+}
+
+.footer a.link i {
+  font-size: 17px;
+  opacity: 0.5;
+}
+
+.rsslink i {
+  color: #FF6600 !important;
+}
+
+.twitterlink i {
+  color: #4099FF !important;
+}
+
+.footer a {
+  padding: 0.5em;
+}
+
+.footer a.link:hover i {
+  opacity: 1;
+}
+
+.footer a:hover {
+  background-color: #EEE;
+}
+
+.footer a.link, .footer a.link:hover, .footer a.link:visited, .footer a.link:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.twlogo {
+  color: #4099FF;
+}
+
+.emlogo {
+  color: #733D00;
+}
+
+#disqus_thread {
+  margin-top: 1.5em;
+  border-top: 1px solid #EEE;
+  padding-top: 1.5em; 
+}
+
+.code * {
+  font-size: 11pt;
+  font-family: 'Liberation_MonoRegular', 'courier new', monospace;
+}

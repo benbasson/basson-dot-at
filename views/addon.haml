@@ -1,0 +1,39 @@
+= haml :title
+.page-content
+  .container
+    .panel.panel-default
+      .panel-body
+        .addon-panel.addon-panel-left
+          %ul
+            %li
+              %a{href: @page.addon_data.install}
+                Install (XPI)
+            %li
+              %a{href: "https://github.com/#{@page.metadata.githubrepo}/"}
+                Source (GitHub)
+            %li
+              %a{href: @page.addon_data.learnmore}
+                Mozilla Add-ons Page
+            %li
+              %a{href: "https://github.com/#{@page.metadata.githubrepo}/issues"}
+                Report Bug / Request Feature
+        .addon-panel.addon-panel-right
+          %p
+            Current Version: #{@page.addon_data.version}
+          %p
+            Last Updated: #{@page.github_versions.first.published_at.to_datetime.strftime('%d/%m/%Y')}
+          %p
+            Average Daily Users: #{number_with_delimiter(@page.addon_data.daily_users)}
+          %p
+            Total Downloads: #{number_with_delimiter(@page.addon_data.total_downloads)}
+    = markdown @page.content
+    %h2 
+      Changelog
+    - @page.github_versions.each do |version|
+      %dl
+        %dt
+          %a{href: version.html_url} 
+            #{version.name}
+          \- #{version.published_at.to_datetime.strftime('%d/%m/%Y')}
+        %dd
+        = markdown version.body

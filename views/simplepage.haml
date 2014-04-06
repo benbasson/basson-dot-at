@@ -1,0 +1,5 @@
+= haml :title
+.page-content
+  .container
+    = preserve Kramdown::Document.new(@page.content, :coderay_line_numbers => nil).to_html
+    = haml :comments

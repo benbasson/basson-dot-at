@@ -1,0 +1,9 @@
+%dl
+  %dt
+    %a{href: "/blog/#{article.metadata.shortname}"}<
+      #{article.metadata.title} 
+  %dd
+    .blogdd
+      = markdown article.metadata.summary
+    .blogdate 
+      \- #{article.formatted_date}

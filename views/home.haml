@@ -1,0 +1,11 @@
+= haml :title
+.page-content
+  .container
+    = markdown @page.content
+    %h2 Recent Blog Posts
+    - settings.articles.each_with_index.first(3).each do |(key, article), i|
+      = haml :articlesummary, :locals => {:article => article}
+    - if settings.articles.size > 3
+      %p
+        More blog posts are available in the 
+        %a{href: '/blog'} Blog Archive...

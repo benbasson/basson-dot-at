@@ -1,0 +1,13 @@
+= haml :title
+.page-content
+  .container
+    = markdown @page.content
+    - curr_month = settings.articles.values.first.metadata.date.month
+    %h2
+      #{settings.articles.values.first.metadata.date.strftime "%B %Y"} 
+    - settings.articles.each do |k, article|
+      - if article.metadata.date.month != curr_month
+        %h2
+          #{article.metadata.date.strftime "%D %B %Y %H:%M"}
+      = haml :articlesummary, :locals => {:article => article}
+      - curr_month = article.metadata.date.month

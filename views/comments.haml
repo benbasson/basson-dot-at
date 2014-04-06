@@ -1,0 +1,19 @@
+- if not ENV['DISQUS_URL_OVERRIDE'].nil? # This is for dev, i.e. localhost
+  :javascript
+    var disqus_url = "#{ENV['DISQUS_URL_OVERRIDE']}" + window.location.pathname;
+- if @comments_enabled
+  #disqus_thread
+  :javascript
+    var disqus_shortname = "#{ENV['DISQUS_SHORT_NAME']}";
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  %noscript
+    Please enable JavaScript to view the 
+    %a{href: 'http://disqus.com/?ref_noscript'}
+      comments powered by Disqus.
+    %a.dsq-brlink{href: "http://disqus.com"} 
+      comments powered by
+      %span.logo-disqus Disqus
