@@ -225,3 +225,7 @@ i.fa {
   font-size: 11pt;
   font-family: 'Liberation_MonoRegular', 'courier new', monospace;
 }
+
+pre {
+  padding: 8px;
+}
