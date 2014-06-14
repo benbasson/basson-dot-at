@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/benbasson/coderay.git
-  revision: c1a3d89e60da0217baf82fd8f2459e8c92157697
+  revision: a758e83ca75a6ce61464dd971880c86db9458104
   branch: oracle-sql-plsql
   specs:
     coderay (1.1.1.rc1)
