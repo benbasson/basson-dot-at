@@ -4,6 +4,7 @@ title: Oracle 11g User Passwords
 subtext: A quick, simple script to check that I did my job properly...
 date: 2014-06-14T15:50:31
 shortname: oracle-11g-user-passwords
+description: An introduction to Oracle 11g password storage and the script I use to check passwords have been changed from their defaults.
 summary: When setting up a new database, it's sometimes easy to forget that Oracle users are almost universally created with default/poor passwords. This blog provides some general background information on how Oracle stores passwords, and the script that I wrote to check if they've been changed to something more secure.
 ---
 
