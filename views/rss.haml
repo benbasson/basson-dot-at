@@ -16,4 +16,7 @@
         %description #{article.metadata.summary}
         %pubDate #{article.metadata.date.rfc822}
         %guid{isPermaLink: 'true'} #{@base_url}/blog/#{article.metadata.shortname}
-        %content:encoded <![CDATA[#{Kramdown::Document.new(article.content, :absolute_urls => true, :base_url => base_url(), :smart_quotes => ['apos','apos','quot','quot'], :coderay_line_numbers => nil).to_html }]]>
+        %content:encoded
+          <![CDATA[
+          = preserve Kramdown::Document.new(article.content, :absolute_urls => true, :base_url => base_url(), :smart_quotes => ['apos','apos','quot','quot'], :coderay_line_numbers => nil).to_html
+          ]]>
