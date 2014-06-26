@@ -2,7 +2,7 @@
 author: Ben Basson
 title: Building basson.at
 subtext: Ruby, Sinatra, Heroku and importantly, no PHP.
-date: 2014-06-08T20:45:01
+date: 2014-06-08T20:45:01 +1
 shortname: building-basson-dot-at
 description: A quick summary of how I built basson.at and why I did things the way I did.
 summary: I thought a great way to properly start off this blog would be to talk a little bit about how I wrote this website and why I did some of the things I did.
