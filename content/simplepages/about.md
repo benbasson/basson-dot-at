@@ -2,6 +2,7 @@
 headtitle: About
 title: About this website
 subtext: TL;DR - written to learn more Ruby, discard my remaining PHP.
+description: "I created this website mainly to start a blog, but also to kill off my previous PHP website and teach myself more about Ruby and Sinatra."
 ---
 
 I created this website for a few reasons:

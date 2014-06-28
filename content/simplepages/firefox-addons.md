@@ -1,6 +1,7 @@
 ---
 title: Firefox Add-ons
 subtext: A decade of hacking Firefox.
+description: "A list of my Firefox Add-ons that have been in development since 2004, the most popular of which are Image Toolbar, New Tab Homepage and Context Search."
 ---
 
 Over the last 10+ years, I've written some Mozilla Firefox Add-ons which have

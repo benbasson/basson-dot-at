@@ -2,6 +2,7 @@
 headtitle: Contact
 title: Contact Me
 subtext: ...here's a whole page about how to go about it.
+description: How to get in touch with me, via email, Twitter and GitHub.
 ---
 
 If you'd like to get in touch, that's great; but please read the following page

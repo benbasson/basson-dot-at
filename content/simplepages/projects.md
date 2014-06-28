@@ -1,6 +1,7 @@
 ---
 title: Projects
 subtext: Experiments, hobby projects and other stuff I've made available.
+description: "A list of my side projects that don't deserve their own page, but are interesting enough to mention and/or link to."
 ---
 
 Like most professional programmers, I get the itch to try out languages that I
