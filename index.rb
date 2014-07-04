@@ -21,6 +21,7 @@ configure do
   set :haml, :attr_wrapper => '"'
   set :server, 'thin'
   set :sitename, 'Ben Basson'
+  set :static_cache_control, [:public, max_age: 60 * 60 * 24 * 7]
 
   # Pick up all the blog posts and stick them in a hash, which is subsequently
   # date ordered. This allows quick retrival as well as useful traversal
