@@ -14,10 +14,10 @@ Contact Me Directly
 If you have an issue with a Firefox Add-on, please see below. If you just want 
 to get in touch, you can do so via:
 
-<i class="twlogo fa fa-twitter" markdown='1'></i> Twitter: [@Ben_Basson][1]  
+<i class="twlogo fa fa-twitter" markdown='1'></i> Twitter: <a href="https://twitter.com/Ben_Basson" rel="me">@Ben_Basson</a>  
 <i class="emlogo fa fa-envelope" markdown='1'></i> Email: <contact@basson.at>
 
-Recruiters, I'm flattered, but please actually [read my CV][2] before sending
+Recruiters, I'm flattered, but please actually <a href="http://careers.stackoverflow.com/benbasson" rel="me">read my CV</a> before sending
 me things. In addition, your offer should be spectacular because I'm really 
 happy where I am at the moment.
 
@@ -48,8 +48,6 @@ For comments on blogs, you should see a [Disqus][9] powered comments section
 at the bottom of each article. If it's not there, please get in touch via
 one of the above methods and let me know what browser you're using.
 
-[1]: https://twitter.com/Ben_Basson
-[2]: http://careers.stackoverflow.com/benbasson
 [3]: https://github.com/benbasson/contextsearch/issues
 [4]: https://github.com/benbasson/contexthighlight/issues
 [5]: https://github.com/benbasson/foobarcontrols/issues
