@@ -11,6 +11,7 @@ gem 'coderay', :git => 'https://github.com/benbasson/coderay.git', :branch => 'o
 gem 'preamble', :git => 'https://github.com/benbasson/preamble.git', :branch => 'release', :tag => 'v0.0.3'
 gem 'hashugar'
 gem 'httparty'
+gem 'rack-contrib'
 
 group :production do
   gem 'newrelic_rpm'

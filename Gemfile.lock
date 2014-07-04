@@ -49,6 +49,8 @@ GEM
     multi_xml (0.5.5)
     newrelic_rpm (3.8.1.221)
     rack (1.5.2)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.2)
@@ -97,6 +99,7 @@ DEPENDENCIES
   kramdown
   newrelic_rpm
   preamble!
+  rack-contrib
   sinatra
   sinatra-contrib
   thin
