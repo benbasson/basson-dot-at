@@ -143,7 +143,10 @@ i.fa {
   border-top: 1.5em solid #004032;
   padding: 0.7em 1em 0.7em 0.5em;
   font-size: 1.3em;
-  text-align: right;
+}
+
+.footer .buttons {
+  float: left;
 }
 
 .blogdd p {
@@ -228,4 +231,19 @@ i.fa {
 
 pre {
   padding: 8px;
+}
+
+.copyright {
+  float: right;
+}
+
+@media screen and (max-width: 765px) {
+  .footer .buttons {
+    width: 100%;
+    text-align: center;
+  }
+  .copyright {
+    width: 100%;
+    text-align: center;
+  }
 }
