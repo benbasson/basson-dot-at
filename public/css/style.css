@@ -86,6 +86,11 @@ i.fa {
   text-align: right;
 }
 
+.page-title-block a {
+  color: #BBB;
+  text-decoration: none;
+}
+
 .page-title-block .container, .page-content .container {
   max-width: 768px;
   margin: 0 auto;

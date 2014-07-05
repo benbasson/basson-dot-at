@@ -3,4 +3,7 @@
     %h1< #{@page.metadata.title}
     %p.subtext< #{@page.metadata.subtext}
     - if @page.include_date_and_author?
-      %p.posted< Posted #{@page.formatted_date} by #{@page.metadata.author}
+      %p.posted<
+        Posted #{@page.formatted_date} by
+        %a{href: "#{@page.metadata.authorurl}?rel=author"}<
+          #{@page.metadata.author}
