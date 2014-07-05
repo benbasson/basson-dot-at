@@ -34,7 +34,7 @@ Curb is essentially a Ruby wrapper for [curl][3], a command-line tool for retrie
 curl -s 'http://www.basson.at/service-status' | grep -i 'Up'
 ~~~
 
-My reason for using Curb is that it's as a dependency of [FeedJira][4], which I used for RSS parsing in [iSomething][5].
+My reason for using Curb is that it's a dependency of [FeedJira][4], which I used for RSS parsing in [iSomething][5].
 
 Curb installation overview
 --------------------------
