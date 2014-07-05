@@ -8,6 +8,6 @@
     - settings.articles.each do |k, article|
       - if article.metadata.date.month != curr_month
         %h2
-          #{article.metadata.date.strftime "%D %B %Y %H:%M"}
+          #{article.metadata.date.strftime "%B %Y"}
       = haml :articlesummary, :locals => {:article => article}
       - curr_month = article.metadata.date.month
