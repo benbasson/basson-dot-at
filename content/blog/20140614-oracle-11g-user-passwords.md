@@ -1,5 +1,6 @@
 ---
 author: Ben Basson
+authorurl: http://plus.google.com/107880308657806834664
 title: Oracle 11g User Passwords
 subtext: A quick, simple script to check that I did my job properly...
 date: 2014-06-14T15:50:31 +1

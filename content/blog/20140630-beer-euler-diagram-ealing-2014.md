@@ -1,5 +1,6 @@
 ---
 author: Ben Basson
+authorurl: http://plus.google.com/107880308657806834664
 title: Beer Euler Diagram (Ealing 2014)
 subtext: My top picks for Ealing Beer Festival in Euler diagram form.
 date: 2014-06-30T20:50:18 +1
