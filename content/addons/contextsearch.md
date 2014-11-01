@@ -58,6 +58,6 @@ Screenshots
 Here's one of Context Search in action...
 
 ![Picture of Context Search being used on Wikipedia to search for the term
-'a word'](/images/contextsearch-screenshot.png)
+'a word'](/images/addons/contextsearch-screenshot.png)
 
 [1]: http://mycroftproject.com/
