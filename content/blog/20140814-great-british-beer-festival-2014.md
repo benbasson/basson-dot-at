@@ -31,7 +31,7 @@ Without further ado, here are a handful of beers that I will be recommending and
 * Timothy Taylor Brewery - *Boltmaker* - it's the champion beer this year, and my experience of Timothy Taylor is that they're an excellent brewery.
 * Salopian Brewery - *Darwin's Origin* - Third-place this year, and I'm a big fan of Salopian. I've not tried this one but I'm sure it'll be great.
 * Isle of Skye Brewery - *Young Pretender* - I've had a few of beers from this brewery before, a couple were when I was actually on the Isle of Skye. They were all great, and hopefully this will live up to its reputation.
-* Bushy's Brewery - *Manannan's Cloak* - A great brewery on the Isle of Man. Some of the finest beer I've every tasted has come from [Bushy's][5], but it's incredibly rare to see it in England. This one is likely to sell out fast.
+* Bushy's Brewery - *Manannan's Cloak* - A great brewery on the Isle of Man. Some of the finest beer I've ever tasted has come from [Bushy's][5], but it's incredibly rare to see it in England. This one is likely to sell out fast.
 * Okells Brewery - *Special Manx Pale Ale (SMPA)* - Another Isle of Man brewery with consistently excellent beer. 
 * XT - *6* - The XT brewery was a surprise to me a couple of years ago, but I've had nothing but great beers from them. Sadly, not a huge showing at the GBBF, but I'll give their #6 a go if I get the chance.
 
