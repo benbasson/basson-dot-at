@@ -10,11 +10,11 @@ class Kramdown::Parser::Kramdown
     @base_url_as_uri ||= URI.parse(@options[:base_url])
   end
   
-  def add_link(el, href, title, alt_text = nil)
+  def add_link(el, href, title, alt_text = nil, ial = nil)
     if @options[:absolute_urls] and URI.parse(href).relative? 
       href = base_url_as_uri.merge(href).to_s
     end
-    old_add_link(el, href, title, alt_text)   
+    old_add_link(el, href, title, alt_text, ial)
   end
  
 end
