@@ -1,0 +1,2630 @@
+<wsdl:definitions targetNamespace="http://www.towersoft.com/schema/webservice/trim2/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.towersoft.com/schema/webservice/trim2/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.towersoft.com/schema/webservice/trim2/">
+      <s:element name="ListProperties">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListPropertiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListPropertiesResult" type="tns:ArrayOfPropertyDescription"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPropertyDescription">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PropertyDescription" nillable="true" type="tns:PropertyDescription"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PropertyDescription">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Caption" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:PropertyOrFieldFormats"/>
+          <s:element minOccurs="0" maxOccurs="1" name="TypeOfObject" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EnumEntries" type="tns:ArrayOfEnumEntry"/>
+          <s:element minOccurs="1" maxOccurs="1" name="IsDefault" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="IsDefaultTreeColumn" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="IsTreeColumn" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="IsOkForDataEntry" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="IsDefaultForViewPane" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="IsOkForViewPane" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="IsReadOnly" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="RecordTypes" type="tns:ArrayOfString"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PropertyOrFieldFormats">
+        <s:restriction base="s:string">
+          <s:enumeration value="String"/>
+          <s:enumeration value="Number"/>
+          <s:enumeration value="Boolean"/>
+          <s:enumeration value="Date"/>
+          <s:enumeration value="Datetime"/>
+          <s:enumeration value="Decimal"/>
+          <s:enumeration value="Text"/>
+          <s:enumeration value="Currency"/>
+          <s:enumeration value="Enum"/>
+          <s:enumeration value="Object"/>
+          <s:enumeration value="ObjectType"/>
+          <s:enumeration value="BigNumber"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfEnumEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EnumEntry" type="tns:EnumEntry"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EnumEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Caption" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PropertyName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListPropertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListPropertyResult" type="tns:PropertyDescription"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Execute">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="req" type="tns:TrimRequest"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TrimRequest">
+        <s:sequence>
+          <s:choice minOccurs="0" maxOccurs="unbounded">
+            <s:element minOccurs="0" maxOccurs="1" name="KeywordRecordKeywordSelect" type="tns:KeywordRecordKeywordSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="RecordOperation" type="tns:RecordOperation"/>
+            <s:element minOccurs="0" maxOccurs="1" name="AddRecordRelationship" type="tns:AddRecordRelationship"/>
+            <s:element minOccurs="0" maxOccurs="1" name="AddLocationRelationship" type="tns:AddLocationRelationship"/>
+            <s:element minOccurs="0" maxOccurs="1" name="AddRendition" type="tns:AddRendition"/>
+            <s:element minOccurs="0" maxOccurs="1" name="AppendAccess" type="tns:AppendAccess"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplyUserLabel" type="tns:ApplyUserLabel"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Delete" type="tns:Delete"/>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteLocationRelationship" type="tns:DeleteLocationRelationship"/>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteRecordRelationship" type="tns:DeleteRecordRelationship"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Download" type="tns:Download"/>
+            <s:element minOccurs="0" maxOccurs="1" name="HasAccess" type="tns:HasAccess"/>
+            <s:element minOccurs="0" maxOccurs="1" name="HasLocationRelationship" type="tns:HasLocationRelationship"/>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateChildItem" type="tns:CreateChildItem"/>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveAccess" type="tns:RemoveAccess"/>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveFromUserLabel" type="tns:RemoveFromUserLabel"/>
+            <s:element minOccurs="0" maxOccurs="1" name="InitiateWorkflow" type="tns:InitiateWorkflow"/>
+            <s:element minOccurs="0" maxOccurs="1" name="InitiateAction" type="tns:InitiateAction"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ClassificationUserLabelSelect" type="tns:ClassificationUserLabelSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ClassificationStringSelect" type="tns:ClassificationStringSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ClassificationClassificationSelect" type="tns:ClassificationClassificationSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ClassificationUrisSelect" type="tns:ClassificationUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ClassificationSimpleSelect" type="tns:ClassificationSimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="HoldStringSelect" type="tns:HoldStringSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="HoldRecordSelect" type="tns:HoldRecordSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="HoldUrisSelect" type="tns:HoldUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="HoldSimpleSelect" type="tns:HoldSimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="KeywordSimpleSelect" type="tns:KeywordSimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="KeywordKeywordRelationshipSelect" type="tns:KeywordKeywordRelationshipSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="KeywordUserLabelSelect" type="tns:KeywordUserLabelSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="KeywordKeywordSelect" type="tns:KeywordKeywordSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="KeywordUrisSelect" type="tns:KeywordUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="AttachKeyword" type="tns:AttachKeyword"/>
+            <s:element minOccurs="0" maxOccurs="1" name="KeywordStringSelect" type="tns:KeywordStringSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="LocationSimpleSelect" type="tns:LocationSimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="LocationDetailedSelect" type="tns:LocationDetailedSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="LocationUserLabelSelect" type="tns:LocationUserLabelSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="LocationUrisSelect" type="tns:LocationUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="LocationRelationshipSelect" type="tns:LocationRelationshipSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="LocationStringParsingSelect" type="tns:LocationStringParsingSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="LocationLocationSelect" type="tns:LocationLocationSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="LocationStringSelect" type="tns:LocationStringSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="RecordSearchStringSelect" type="tns:RecordSearchStringSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectStringSearchSelect" type="tns:ObjectStringSearchSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="RecordSearchUrisSelect" type="tns:RecordSearchUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="RecordSearchSimpleSelect" type="tns:RecordSearchSimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="RecordTypeStringSelect" type="tns:RecordTypeStringSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="RecordTypeUrisSelect" type="tns:RecordTypeUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="RecordTypeSimpleSelect" type="tns:RecordTypeSimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="SavedSearchStringSelect" type="tns:SavedSearchStringSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="SavedSearchUrisSelect" type="tns:SavedSearchUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="SavedSearchSimpleSelect" type="tns:SavedSearchSimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ActivityUrisSelect" type="tns:ActivityUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ActivityRecordSelect" type="tns:ActivityRecordSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ActivityLocationSelect" type="tns:ActivityLocationSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ActivitySimpleSelect" type="tns:ActivitySimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="WorkflowTemplateUrisSelect" type="tns:WorkflowTemplateUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="WorkflowTemplateStringSelect" type="tns:WorkflowTemplateStringSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="WorkflowTemplateSimpleSelect" type="tns:WorkflowTemplateSimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="WorkflowRecordSelect" type="tns:WorkflowRecordSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="WorkflowSimpleSelect" type="tns:WorkflowSimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="WorkflowStringSelect" type="tns:WorkflowStringSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="WorkflowUrisSelect" type="tns:WorkflowUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="WorkflowUserLabelSelect" type="tns:WorkflowUserLabelSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ScheduleUserLabelSelect" type="tns:ScheduleUserLabelSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ScheduleStringSelect" type="tns:ScheduleStringSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ScheduleUrisSelect" type="tns:ScheduleUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Upload" type="tns:Upload"/>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityLevelStringSelect" type="tns:SecurityLevelStringSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityLevelUrisSelect" type="tns:SecurityLevelUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityLevelSimpleSelect" type="tns:SecurityLevelSimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="UserLabelStringSelect" type="tns:UserLabelStringSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="UserLabelUrisSelect" type="tns:UserLabelUrisSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="UserLabelSimpleSelect" type="tns:UserLabelSimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="LocationAndedSearch" type="tns:LocationAndedSearch"/>
+            <s:element minOccurs="0" maxOccurs="1" name="RecordSearch" type="tns:RecordSearch"/>
+            <s:element minOccurs="0" maxOccurs="1" name="DatabaseSearch" type="tns:DatabaseSearch"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ShortcutLocationName" type="tns:ShortcutLocationName"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ShortcutRecordDateRegistered" type="tns:ShortcutRecordDateRegistered"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ShortcutRecordNumber" type="tns:ShortcutRecordNumber"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ShortcutRecordTitle" type="tns:ShortcutRecordTitle"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ShortcutRecordUri" type="tns:ShortcutRecordUri"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ShortcutRecordUris" type="tns:ShortcutRecordUris"/>
+            <s:element minOccurs="0" maxOccurs="1" name="AddHold" type="tns:AddHold"/>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveHold" type="tns:RemoveHold"/>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyCreate" type="tns:VerifyCreate"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Update" type="tns:Update"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Verify" type="tns:Verify"/>
+            <s:element minOccurs="0" maxOccurs="1" name="AppendNotes" type="tns:AppendNotes"/>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckIn" type="tns:CheckIn"/>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckInDiscardChanges" type="tns:CheckInDiscardChanges"/>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckInMailMessage" type="tns:CheckInMailMessage"/>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckOut" type="tns:CheckOut"/>
+            <s:element minOccurs="0" maxOccurs="1" name="CompleteCurrentAction" type="tns:CompleteCurrentAction"/>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateCopy" type="tns:CreateCopy"/>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteRendition" type="tns:DeleteRendition"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Finalize" type="tns:Finalize"/>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSuggestedNumber" type="tns:GetSuggestedNumber"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Create" type="tns:Create"/>
+            <s:element minOccurs="0" maxOccurs="1" name="DebugSleep" type="tns:DebugSleep"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ScheduleSimpleSelect" type="tns:ScheduleSimpleSelect"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectOperation" type="tns:ObjectOperation"/>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchOperation" type="tns:SearchOperation"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Fetch" type="tns:Fetch"/>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchInjectionUri" type="tns:FetchInjectionUri"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ConnectionInfo" type="tns:ConnectionInfo"/>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateBase" type="tns:UpdateBase"/>
+            <s:element minOccurs="0" maxOccurs="1" name="IsLicensed" type="tns:IsLicensed"/>
+          </s:choice>
+          <s:element minOccurs="1" maxOccurs="1" name="HideVersionNumbers" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ProvideTimingResults" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ForceRealTimeCacheUpdate" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KeywordRecordKeywordSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RecordUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="AttachmentType" type="tns:KeywordAttachMethods"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SearchOperation" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Operation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IsForUpdate" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:int"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Operation" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TargetObjectType" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="TargetForUpdate" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IsLicensed">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Operation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ModuleType" type="tns:LicenseTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="LicenseTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="Workflow"/>
+          <s:enumeration value="RecordsManagement"/>
+          <s:enumeration value="SpaceManagement"/>
+          <s:enumeration value="EnterpriseCachedStore"/>
+          <s:enumeration value="DocumentContent"/>
+          <s:enumeration value="WebServer"/>
+          <s:enumeration value="GuestGateway"/>
+          <s:enumeration value="DocumentManagement"/>
+          <s:enumeration value="ClassifiedSecurity"/>
+          <s:enumeration value="CustomResourcesAvailable"/>
+          <s:enumeration value="AnnotateRedact"/>
+          <s:enumeration value="DocumentAssembly"/>
+          <s:enumeration value="MeetingManager"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ConnectionInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Operation"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="FetchInjectionUri">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Operation"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Fetch">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Operation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfSpecificationProperty"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:int"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Populate" type="s:int"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideVersion" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfSpecificationProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SpecificationProperty" nillable="true" type="tns:SpecificationProperty"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SpecificationProperty">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:PropertyBase"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PropertyBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Children" type="tns:ArrayOfPropertyBase"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPropertyBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PropertyBase" nillable="true" type="tns:PropertyBase"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InputProperty">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:PropertyBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Val" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="TargetChildUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DebugSleep">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Operation"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UpdateBase" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Operation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Saving" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="VerifyAndCreateWarning" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfInputProperty"/>
+              <s:element minOccurs="0" maxOccurs="1" name="AdditionalItems" type="tns:ArrayOfSpecificationProperty"/>
+              <s:element minOccurs="0" maxOccurs="1" name="TrimObjectType" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfInputProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InputProperty" nillable="true" type="tns:InputProperty"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Create">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UpdateBase"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Verify">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UpdateBase"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Update">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UpdateBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RequireVersion" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="VerifyCreate">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UpdateBase"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Upload">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Operation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UploadId" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="BytesRead" type="s:int"/>
+              <s:element minOccurs="0" maxOccurs="1" name="MTOMPayload" type="s:base64Binary"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Final" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="TransferType" type="tns:TransferTypeType"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Base64Payload" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="TransferTypeType">
+        <s:restriction base="s:string">
+          <s:enumeration value="inline"/>
+          <s:enumeration value="attachment"/>
+          <s:enumeration value="mtom"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ObjectOperation" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Operation"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="InitiateAction">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ActionUri" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Action" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="AssigneeUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="InitiateWorkflow">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="WorkflowTemplate" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="InitiatingRecordBehvaior" type="tns:InitiatingRecordBehavior"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="InitiatingRecordBehavior">
+        <s:restriction base="s:string">
+          <s:enumeration value="Container"/>
+          <s:enumeration value="Ignore"/>
+          <s:enumeration value="Reference"/>
+          <s:enumeration value="Working"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RemoveFromUserLabel">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserLabelUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RemoveAccess">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AclType" type="s:int"/>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CreateChildItem">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ChildObjectType" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfInputProperty"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="HasLocationRelationship">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RelatedUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="RelationshipType" type="tns:LocRelationshipTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="LocRelationshipTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="MemberOf"/>
+          <s:enumeration value="BossedBy"/>
+          <s:enumeration value="OtherOf"/>
+          <s:enumeration value="HasMembers"/>
+          <s:enumeration value="BossOf"/>
+          <s:enumeration value="HasOthers"/>
+          <s:enumeration value="DelegateOf"/>
+          <s:enumeration value="HasDelegates"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="HasAccess">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AclType" type="s:int"/>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Download">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Checkout" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="CheckoutPath" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="MaximumTransferBytes" type="s:int"/>
+              <s:element minOccurs="1" maxOccurs="1" name="TransferInset" type="s:int"/>
+              <s:element minOccurs="0" maxOccurs="1" name="ChildUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="TransferType" type="tns:TransferTypeType"/>
+              <s:element minOccurs="0" maxOccurs="1" name="DownloadId" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DeleteLocationRelationship">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RelatedUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="RelationshipType" type="tns:LocRelationshipTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Delete">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ApplyUserLabel">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserLabelUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ApplyMetadataUpdates" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="CreateLinkeBetweenObjectAndLabel" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AppendAccess">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AclType" type="s:int"/>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AddLocationRelationship">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RelatedUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="RelationshipType" type="tns:LocRelationshipTypes"/>
+              <s:element minOccurs="1" maxOccurs="1" name="MakeDefault" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordOperation" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ObjectOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FailOnWarning" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="GetSuggestedNumber">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IndicateManualPartsWithPatternCharacter" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Finalize">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DeleteRendition">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ChildUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CreateCopy">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SuggestedNumber" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="SuggestedUncompressedNumber" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:CopyType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="CopyType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Version"/>
+          <s:enumeration value="Part"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CompleteCurrentAction">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CheckOut">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CheckInMailMessage">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="DocumentExtension" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="UploadId" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="NewRevision" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="KeepCheckedOut" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Attachments" type="tns:ArrayOfMailAttachment"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Recipients" type="tns:ArrayOfMailRecipient"/>
+              <s:element minOccurs="0" maxOccurs="1" name="AuthorAddress" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="AuthorDisplayName" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="AuthorMailType" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="SentDate" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfMailAttachment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MailAttachment" nillable="true" type="tns:MailAttachment"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MailAttachment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UploadId" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentExtension" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMailRecipient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MailRecipient" nillable="true" type="tns:MailRecipient"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MailRecipient">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:MailRecipientTypes"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MailAddress" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MailType" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MailRecipientTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="To"/>
+          <s:enumeration value="Cc"/>
+          <s:enumeration value="Bcc"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CheckInDiscardChanges">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CheckIn">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="DocumentExtension" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="NewRevision" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="KeepCheckedOut" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="UploadId" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AppendNotes">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AddUserStamp" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="AdditionalNotes" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RemoveHold">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="HoldUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AddHold">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="HoldUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AttachKeyword">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="KeywordUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DeleteRecordRelationship">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RelatedUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AddRendition">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="RenditionType" type="tns:RenditionTypes"/>
+              <s:element minOccurs="0" maxOccurs="1" name="UploadId" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="RenditionTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="Dsignature"/>
+          <s:enumeration value="Ocr"/>
+          <s:enumeration value="Annotation"/>
+          <s:enumeration value="Mif"/>
+          <s:enumeration value="Multimedia"/>
+          <s:enumeration value="NativeMail"/>
+          <s:enumeration value="Other1"/>
+          <s:enumeration value="Other2"/>
+          <s:enumeration value="Other3"/>
+          <s:enumeration value="Other4"/>
+          <s:enumeration value="Other5"/>
+          <s:enumeration value="Other6"/>
+          <s:enumeration value="Redaction"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="AddRecordRelationship">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RelatedUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="RelationshipType" type="tns:RecordRelationships"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="RecordRelationships">
+        <s:restriction base="s:string">
+          <s:enumeration value="IsRelatedTo"/>
+          <s:enumeration value="IsTempCopy"/>
+          <s:enumeration value="IsRootPart"/>
+          <s:enumeration value="DoesSupersede"/>
+          <s:enumeration value="IsInSeries"/>
+          <s:enumeration value="IsAttachmentOf"/>
+          <s:enumeration value="IsVersion"/>
+          <s:enumeration value="IsAltIn"/>
+          <s:enumeration value="Custom1"/>
+          <s:enumeration value="Custom2"/>
+          <s:enumeration value="Custom3"/>
+          <s:enumeration value="Custom4"/>
+          <s:enumeration value="Custom5"/>
+          <s:enumeration value="Custom6"/>
+          <s:enumeration value="Custom7"/>
+          <s:enumeration value="Custom8"/>
+          <s:enumeration value="Custom9"/>
+          <s:enumeration value="Custom10"/>
+          <s:enumeration value="RedactionOf"/>
+          <s:enumeration value="DerivedFrom"/>
+          <s:enumeration value="ContainsClause"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ScheduleSimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:ScheduleSimpleSelectType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="ScheduleSimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="None"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ShortcutRecordUris">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShortcutRecordUri">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShortcutRecordTitle">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="TitleWord" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShortcutRecordNumber">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RecordNumber" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShortcutRecordDateRegistered">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShortcutLocationName">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DatabaseSearch">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordSearch">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Sort1" type="tns:RecordSortFields"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Sort1Descending" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Sort2" type="tns:RecordSortFields"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Sort2Descending" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Sort3" type="tns:RecordSortFields"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Sort3Descending" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="FilterRecordTypesInclude" type="tns:ArrayOfString"/>
+              <s:element minOccurs="0" maxOccurs="1" name="FilterRecordTypesExclude" type="tns:ArrayOfString"/>
+              <s:element minOccurs="0" maxOccurs="1" name="FilterRecordClassInclude" type="tns:ArrayOfRecordClass"/>
+              <s:element minOccurs="0" maxOccurs="1" name="FilterRecordClassExclude" type="tns:ArrayOfRecordClass"/>
+              <s:element minOccurs="0" maxOccurs="1" name="FilterRecordDispositionInclude" type="tns:ArrayOfRecordDisps"/>
+              <s:element minOccurs="0" maxOccurs="1" name="FilterRecordDispositionExclude" type="tns:ArrayOfRecordDisps"/>
+              <s:element minOccurs="0" maxOccurs="1" name="FilterFileTypes" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="FilterFinalizedState" type="tns:FinalizedFilters"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Uri" type="s:long"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IgnoreOnError" type="s:boolean"/>
+              <s:choice minOccurs="0" maxOccurs="unbounded">
+                <s:element minOccurs="0" maxOccurs="1" name="RecordContainerAltClause" type="tns:RecordContainerAltClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordStringSearchClause" type="tns:RecordStringSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordSimpleSearchClause" type="tns:RecordSimpleSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordBarcodeSearchClause" type="tns:RecordBarcodeSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordRelationshipSearchClause" type="tns:RecordRelationshipSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordRelationshipReverseSearchClause" type="tns:RecordRelationshipReverseSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordUrisSearchClause" type="tns:RecordUrisSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordUserFieldSearchClause" type="tns:RecordUserFieldSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordScheduleSearchClause" type="tns:RecordScheduleSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordOrSearchClause" type="tns:RecordOrSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordNotSearchClause" type="tns:RecordNotSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordStringRangeSearchClause" type="tns:RecordStringRangeSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordNumberRangeSearchClause" type="tns:RecordNumberRangeSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordContactSearchClause" type="tns:RecordContactSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordClassificationSearchClause" type="tns:RecordClassificationSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordSecurityLevelSearchClause" type="tns:RecordSecurityLevelSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordKeywordSearchClause" type="tns:RecordKeywordSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordUserLabelSearchClause" type="tns:RecordUserLabelSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordMessageContentSearchClause" type="tns:RecordMessageContentSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordHoldSearchClause" type="tns:RecordHoldSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordAndSearchClause" type="tns:RecordAndSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordContactTextSearchClause" type="tns:RecordContactTextSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordPreviousLocationSearchClause" type="tns:RecordPreviousLocationSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordUriSearchClause" type="tns:RecordUriSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordDateRangeSearchClause" type="tns:RecordDateRangeSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordLocationSearchClause" type="tns:RecordLocationSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="RecordLocationTypeSearchClause" type="tns:RecordLocationTypeSearchClause"/>
+              </s:choice>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="RecordSortFields">
+        <s:restriction base="s:string">
+          <s:enumeration value="None"/>
+          <s:enumeration value="Number"/>
+          <s:enumeration value="FreeTitle"/>
+          <s:enumeration value="ExternalId"/>
+          <s:enumeration value="DateRegistered"/>
+          <s:enumeration value="DateCreated"/>
+          <s:enumeration value="DateDue"/>
+          <s:enumeration value="DateClosed"/>
+          <s:enumeration value="Priority"/>
+          <s:enumeration value="Consignment"/>
+          <s:enumeration value="DateInactive"/>
+          <s:enumeration value="DateLastAction"/>
+          <s:enumeration value="RecordType"/>
+          <s:enumeration value="StructuredTitle"/>
+          <s:enumeration value="DateFinalized"/>
+          <s:enumeration value="DatePublished"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfRecordClass">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RecordClass" type="tns:RecordClass"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="RecordClass">
+        <s:restriction base="s:string">
+          <s:enumeration value="Vital"/>
+          <s:enumeration value="Corporate"/>
+          <s:enumeration value="WorkGroup"/>
+          <s:enumeration value="Personal"/>
+          <s:enumeration value="Reference"/>
+          <s:enumeration value="Temporary"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfRecordDisps">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RecordDisps" type="tns:RecordDisps"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="RecordDisps">
+        <s:restriction base="s:string">
+          <s:enumeration value="Active"/>
+          <s:enumeration value="Inactive"/>
+          <s:enumeration value="ArchivedLocal"/>
+          <s:enumeration value="ArchivedInterim"/>
+          <s:enumeration value="ArchivedFinal"/>
+          <s:enumeration value="Destroyed"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="FinalizedFilters">
+        <s:restriction base="s:string">
+          <s:enumeration value="Both"/>
+          <s:enumeration value="FinalizedOnly"/>
+          <s:enumeration value="UnfinalizedOnly"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RecordContainerAltClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IncludeAlternateContainers" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordClause" abstract="true"/>
+      <s:complexType name="RecordLocationTypeSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="LocationType" type="tns:SearchLocationTypes"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Recursive" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:RecordLocationTypeSearchClauseType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="SearchLocationTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="Current"/>
+          <s:enumeration value="Home"/>
+          <s:enumeration value="Owner"/>
+          <s:enumeration value="Creator"/>
+          <s:enumeration value="CheckedOutTo"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="RecordLocationTypeSearchClauseType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Location"/>
+          <s:enumeration value="LocationOrContainer"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RecordLocationSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Recursive" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:RecordLocationSearchClauseType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="RecordLocationSearchClauseType">
+        <s:restriction base="s:string">
+          <s:enumeration value="NotAtHome"/>
+          <s:enumeration value="RequestedBy"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RecordDateRangeSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:RecordDateRangeSearchClauseType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="RecordDateRangeSearchClauseType">
+        <s:restriction base="s:string">
+          <s:enumeration value="DateClosed"/>
+          <s:enumeration value="DateCreated"/>
+          <s:enumeration value="DateDue"/>
+          <s:enumeration value="DateLastMoved"/>
+          <s:enumeration value="DateModified"/>
+          <s:enumeration value="DateRegistered"/>
+          <s:enumeration value="DueForReturn"/>
+          <s:enumeration value="RequestedDate"/>
+          <s:enumeration value="DateFinalized"/>
+          <s:enumeration value="RetentionReviewDate"/>
+          <s:enumeration value="DatePublished"/>
+          <s:enumeration value="DateLastAction"/>
+          <s:enumeration value="DateUpdated"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RecordUriSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:RecordUriSearchClauseType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="RecordUriSearchClauseType">
+        <s:restriction base="s:string">
+          <s:enumeration value="AllParts"/>
+          <s:enumeration value="AllVersions"/>
+          <s:enumeration value="ContainerOf"/>
+          <s:enumeration value="ContainedWithin"/>
+          <s:enumeration value="LatestPart"/>
+          <s:enumeration value="LatestPublished"/>
+          <s:enumeration value="LastFinalized"/>
+          <s:enumeration value="LatestVersion"/>
+          <s:enumeration value="SameContactAs"/>
+          <s:enumeration value="SeriesOf"/>
+          <s:enumeration value="WithinSeries"/>
+          <s:enumeration value="ClientRecords"/>
+          <s:enumeration value="AllRelatedRecords"/>
+          <s:enumeration value="ContainerOfAlt"/>
+          <s:enumeration value="CurrentVersion"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RecordPreviousLocationSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationUri" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordContactTextSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SearchTerm" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ContactType" type="tns:SearchContactTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="SearchContactTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="Author"/>
+          <s:enumeration value="Addressee"/>
+          <s:enumeration value="Representative"/>
+          <s:enumeration value="Other"/>
+          <s:enumeration value="Client"/>
+          <s:enumeration value="Any"/>
+          <s:enumeration value="Custom1"/>
+          <s:enumeration value="Custom2"/>
+          <s:enumeration value="Custom3"/>
+          <s:enumeration value="Custom4"/>
+          <s:enumeration value="Custom5"/>
+          <s:enumeration value="Custom6"/>
+          <s:enumeration value="Custom7"/>
+          <s:enumeration value="Custom8"/>
+          <s:enumeration value="Custom9"/>
+          <s:enumeration value="Custom10"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RecordAndSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordHoldSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="HoldUri" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordMessageContentSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SearchTerm" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IncludeSubject" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IncludeText" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IncludeFrom" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IncludeTo" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IncludeAttachedDocumentNames" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IncludeAttachedDocuments" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordUserLabelSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordKeywordSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="KeywordUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordSecurityLevelSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SecurityLevelUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordClassificationSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ClassificationUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordContactSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ContactType" type="tns:SearchContactTypes"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Recursive" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordNumberRangeSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Start" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="End" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="UseExpandedNumber" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordStringRangeSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Start" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="End" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:RecordStringRangeSearchClauseType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="RecordStringRangeSearchClauseType">
+        <s:restriction base="s:string">
+          <s:enumeration value="AccessionNumber"/>
+          <s:enumeration value="ExternalID"/>
+          <s:enumeration value="Priority"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RecordNotSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordOrSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordScheduleSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ScheduleUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordUserFieldSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserDefinedFieldName" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordUrisSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordRelationshipReverseSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="RelationshipType" type="tns:RevRecRelationships"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="RevRecRelationships">
+        <s:restriction base="s:string">
+          <s:enumeration value="RisRelatedTo"/>
+          <s:enumeration value="RisTempCopy"/>
+          <s:enumeration value="RisRootPart"/>
+          <s:enumeration value="RdoesSupersede"/>
+          <s:enumeration value="RisInSeries"/>
+          <s:enumeration value="RisAttachmentOf"/>
+          <s:enumeration value="RisVersion"/>
+          <s:enumeration value="RisAltIn"/>
+          <s:enumeration value="Rcustom1"/>
+          <s:enumeration value="Rcustom2"/>
+          <s:enumeration value="Rcustom3"/>
+          <s:enumeration value="Rcustom4"/>
+          <s:enumeration value="Rcustom5"/>
+          <s:enumeration value="Rcustom6"/>
+          <s:enumeration value="Rcustom7"/>
+          <s:enumeration value="Rcustom8"/>
+          <s:enumeration value="Rcustom9"/>
+          <s:enumeration value="Rcustom10"/>
+          <s:enumeration value="RRedactionOf"/>
+          <s:enumeration value="RDerivedFrom"/>
+          <s:enumeration value="ClauseWithin"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RecordRelationshipSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="RelationshipType" type="tns:RecordRelationships"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordBarcodeSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IsInternal" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordSimpleSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:RecordSimpleSearchClauseType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="RecordSimpleSearchClauseType">
+        <s:restriction base="s:string">
+          <s:enumeration value="MissingRecords"/>
+          <s:enumeration value="NotInContainer"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RecordStringSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RecordClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:RecordStringSearchClauseType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="RecordStringSearchClauseType">
+        <s:restriction base="s:string">
+          <s:enumeration value="AnyWord"/>
+          <s:enumeration value="Consignment"/>
+          <s:enumeration value="DocumentContent"/>
+          <s:enumeration value="NotesWord"/>
+          <s:enumeration value="RecordNumber"/>
+          <s:enumeration value="TitleWord"/>
+          <s:enumeration value="Caveat"/>
+          <s:enumeration value="FileTypes"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="LocationAndedSearch">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:choice minOccurs="0" maxOccurs="unbounded">
+                <s:element minOccurs="0" maxOccurs="1" name="LocationDateRangeSearchClause" type="tns:LocationDateRangeSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="LocationChildSearchClause" type="tns:LocationChildSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="LocationChildRelationshipSearchClause" type="tns:LocationChildRelationshipSearchClause"/>
+                <s:element minOccurs="0" maxOccurs="1" name="LocationStringSearchClause" type="tns:LocationStringSearchClause"/>
+              </s:choice>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocationDateRangeSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LocationClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocationClause" abstract="true"/>
+      <s:complexType name="LocationStringSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LocationClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:LocationStringSearchClauseType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="LocationStringSearchClauseType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Login"/>
+          <s:enumeration value="IdNumber"/>
+          <s:enumeration value="EmailAddress"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="LocationChildRelationshipSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LocationClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="RelationshipType" type="tns:LocRelationshipTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocationChildSearchClause">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LocationClause">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UserLabelSimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:UserLabelSimpleSelectType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="UserLabelSimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="None"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="UserLabelUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UserLabelStringSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SecurityLevelSimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:SecurityLevelSimpleSelectType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="SecurityLevelSimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="AllAvailable"/>
+          <s:enumeration value="None"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="SecurityLevelUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SecurityLevelStringSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ScheduleUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ScheduleStringSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ScheduleUserLabelSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserLabelUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="WorkflowUserLabelSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserLabelUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeCompletedWorkflows" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="WorkflowUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeCompletedWorkflows" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="WorkflowStringSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeCompletedWorkflows" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="WorkflowSimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:WorkflowSimpleSelectType"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeCompletedWorkflows" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="WorkflowSimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="Favorites"/>
+          <s:enumeration value="None"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="WorkflowRecordSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RecordUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeCompletedWorkflows" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="WorkflowTemplateSimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:WorkflowTemplateSimpleSelectType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="WorkflowTemplateSimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="Favorites"/>
+          <s:enumeration value="None"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="WorkflowTemplateStringSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="WorkflowTemplateUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ActivitySimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:ActivitySimpleSelectType"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeNotReadyToStart" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeCompleted" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="ActivitySimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="None"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ActivityLocationSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:ActivityLocationSelectType"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeNotReadyToStart" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeCompleted" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="ActivityLocationSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="AssignedTo"/>
+          <s:enumeration value="EscalatedTo"/>
+          <s:enumeration value="OverdueFor"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ActivityRecordSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RecordUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeNotReadyToStart" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeCompleted" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ActivityUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeNotReadyToStart" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="ExcludeCompleted" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SavedSearchSimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:SavedSearchSimpleSelectType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="SavedSearchSimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="None"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="SavedSearchUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SavedSearchStringSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordTypeSimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:RecordTypeSimpleSelectType"/>
+              <s:element minOccurs="1" maxOccurs="1" name="BehaviorFilter" type="tns:RecordBehaviours"/>
+              <s:element minOccurs="1" maxOccurs="1" name="TypeFilter" type="tns:RecordTypeFilters"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="RecordTypeSimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="None"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="RecordBehaviours">
+        <s:restriction base="s:string">
+          <s:enumeration value="Document"/>
+          <s:enumeration value="Folder"/>
+          <s:enumeration value="Series"/>
+          <s:enumeration value="Box"/>
+          <s:enumeration value="Custom1"/>
+          <s:enumeration value="Custom2"/>
+          <s:enumeration value="Custom3"/>
+          <s:enumeration value="Custom4"/>
+          <s:enumeration value="Custom5"/>
+          <s:enumeration value="Custom6"/>
+          <s:enumeration value="Custom7"/>
+          <s:enumeration value="Custom8"/>
+          <s:enumeration value="Custom9"/>
+          <s:enumeration value="Custom10"/>
+          <s:enumeration value="PaperFolder"/>
+          <s:enumeration value="Blueprint"/>
+          <s:enumeration value="Clause"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="RecordTypeFilters">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="Electronic"/>
+          <s:enumeration value="AllForCreate"/>
+          <s:enumeration value="ElectronicForCreate"/>
+          <s:enumeration value="AllForCreateNoManual"/>
+          <s:enumeration value="ElectronicForCreateNoManual"/>
+          <s:enumeration value="SuitableForNumberingBy"/>
+          <s:enumeration value="ForRecordSearch"/>
+          <s:enumeration value="OdmaCreateDirect"/>
+          <s:enumeration value="FolderToCreate"/>
+          <s:enumeration value="FolderToCreateElectronic"/>
+          <s:enumeration value="RecordWithinClassification"/>
+          <s:enumeration value="RecordWithinClassificationElectronic"/>
+          <s:enumeration value="DefaultForBlueprint"/>
+          <s:enumeration value="CreateFromBlueprint"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RecordTypeUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+              <s:element minOccurs="1" maxOccurs="1" name="BehaviorFilter" type="tns:RecordBehaviours"/>
+              <s:element minOccurs="1" maxOccurs="1" name="TypeFilter" type="tns:RecordTypeFilters"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordTypeStringSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="BehaviorFilter" type="tns:RecordBehaviours"/>
+              <s:element minOccurs="1" maxOccurs="1" name="TypeFilter" type="tns:RecordTypeFilters"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordSearchSimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:RecordSearchSimpleSelectType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="RecordSearchSimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="None"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RecordSearchUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ObjectStringSearchSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="TrimObjectType" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Search" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Sort" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Filter" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RecordSearchStringSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocationStringSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideActiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInactiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideExternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideAdhocLocations" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="IncludeType" type="tns:ArrayOfLocationTypes"/>
+              <s:element minOccurs="0" maxOccurs="1" name="ExcludeType" type="tns:ArrayOfLocationTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfLocationTypes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LocationTypes" type="tns:LocationTypes"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="LocationTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="Unknown"/>
+          <s:enumeration value="Organization"/>
+          <s:enumeration value="Group"/>
+          <s:enumeration value="Position"/>
+          <s:enumeration value="Person"/>
+          <s:enumeration value="ProjectTeam"/>
+          <s:enumeration value="Committee"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="LocationLocationSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideActiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInactiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideExternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideAdhocLocations" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="IncludeType" type="tns:ArrayOfLocationTypes"/>
+              <s:element minOccurs="0" maxOccurs="1" name="ExcludeType" type="tns:ArrayOfLocationTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocationStringParsingSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="UseParsing" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideActiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInactiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideExternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideAdhocLocations" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="IncludeType" type="tns:ArrayOfLocationTypes"/>
+              <s:element minOccurs="0" maxOccurs="1" name="ExcludeType" type="tns:ArrayOfLocationTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocationRelationshipSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="LocationUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="LocationType" type="tns:LocRelationshipTypes"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideActiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInactiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideExternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideAdhocLocations" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="IncludeType" type="tns:ArrayOfLocationTypes"/>
+              <s:element minOccurs="0" maxOccurs="1" name="ExcludeType" type="tns:ArrayOfLocationTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocationUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideActiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInactiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideExternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideAdhocLocations" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="IncludeType" type="tns:ArrayOfLocationTypes"/>
+              <s:element minOccurs="0" maxOccurs="1" name="ExcludeType" type="tns:ArrayOfLocationTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocationUserLabelSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserLabelUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideActiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInactiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideExternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideAdhocLocations" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="IncludeType" type="tns:ArrayOfLocationTypes"/>
+              <s:element minOccurs="0" maxOccurs="1" name="ExcludeType" type="tns:ArrayOfLocationTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocationDetailedSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="WithSortName" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="WithNickName" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="WithLastName" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="WithFirstName" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="WithFirstInitial" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="WithSecondInitial" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="WithThirdInitial" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="WithDateOfBirthFrom" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="WithDateOfBirthTo" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideActiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInactiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideExternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideAdhocLocations" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="IncludeType" type="tns:ArrayOfLocationTypes"/>
+              <s:element minOccurs="0" maxOccurs="1" name="ExcludeType" type="tns:ArrayOfLocationTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocationSimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:LocationSimpleSelectType"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideActiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInactiveLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideInternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideExternalLocations" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="HideAdhocLocations" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="IncludeType" type="tns:ArrayOfLocationTypes"/>
+              <s:element minOccurs="0" maxOccurs="1" name="ExcludeType" type="tns:ArrayOfLocationTypes"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="LocationSimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="None"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="KeywordStringSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="KeywordUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="KeywordKeywordSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="KeywordUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="KeywordUserLabelSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserLabelUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="KeywordKeywordRelationshipSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="KeywordUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="RelationshipType" type="tns:KeywordRelationships"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="KeywordRelationships">
+        <s:restriction base="s:string">
+          <s:enumeration value="RelatedTo"/>
+          <s:enumeration value="Use"/>
+          <s:enumeration value="UsedFor"/>
+          <s:enumeration value="Narrower"/>
+          <s:enumeration value="Broader"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="KeywordSimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:KeywordSimpleSelectType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="KeywordSimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="None"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="HoldSimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:HoldSimpleSelectType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="HoldSimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="None"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="HoldUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="HoldRecordSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="RecordUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="HoldStringSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ClassificationSimpleSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:ClassificationSimpleSelectType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="ClassificationSimpleSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="None"/>
+          <s:enumeration value="TopLevels"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ClassificationUrisSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uris" type="tns:ArrayOfString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ClassificationClassificationSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ClassificationUri" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:ClassificationClassificationSelectType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="ClassificationClassificationSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="ByChildClassifications"/>
+          <s:enumeration value="Subordinates"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ClassificationStringSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Arg" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:ClassificationStringSelectType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="ClassificationStringSelectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="ByPrefix"/>
+          <s:enumeration value="ByWord"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ClassificationUserLabelSelect">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SearchOperation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserLabelUri" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="KeywordAttachMethods">
+        <s:restriction base="s:string">
+          <s:enumeration value="ByTitling"/>
+          <s:enumeration value="ByAttach"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ExecuteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteResult" type="tns:TrimResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TrimResponse">
+        <s:sequence>
+          <s:choice minOccurs="0" maxOccurs="unbounded">
+            <s:element minOccurs="0" maxOccurs="1" name="AddRenditionResult" type="tns:AddRenditionResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSuggestedNumberResult" type="tns:GetSuggestedNumberResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectResult" type="tns:ObjectResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorResult" type="tns:ErrorResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="TimingResult" type="tns:TimingResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="EndResponse" type="tns:EndResponse"/>
+            <s:element minOccurs="0" maxOccurs="1" name="SuccessResult" type="tns:SuccessResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadResult" type="tns:UploadResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchResult" type="tns:SearchResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="HasAccessResult" type="tns:HasAccessResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="HasLocationRelationshipResult" type="tns:HasLocationRelationshipResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="IsLicensedResult" type="tns:IsLicensedResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ConnectionInfoResult" type="tns:ConnectionInfoResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadResult" type="tns:DownloadResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchInjectionUriResult" type="tns:FetchInjectionUriResult"/>
+            <s:element minOccurs="0" maxOccurs="1" name="FetchResult" type="tns:FetchResult"/>
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="TrimVersion" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="TrimSchemaVersion" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="WebServiceVersion" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AddRenditionResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ChildUri" type="s:long"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Result">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FetchResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Objects" type="tns:ArrayOfTrimObject"/>
+            </s:sequence>
+            <s:attribute name="ResultsTruncated" type="s:boolean" use="required"/>
+            <s:attribute name="Count" type="s:long" use="required"/>
+            <s:attribute name="TrimObjectType" type="s:string"/>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfTrimObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TrimObject" nillable="true" type="tns:TrimObject"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TrimObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Values" type="tns:ArrayOfValue"/>
+        </s:sequence>
+        <s:attribute name="Uri" type="s:long" use="required"/>
+        <s:attribute name="Version" type="s:string"/>
+      </s:complexType>
+      <s:complexType name="ArrayOfValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Value" nillable="true" type="tns:Value"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Value">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Children" type="tns:ArrayOfValue"/>
+        </s:sequence>
+        <s:attribute name="Name" type="s:string"/>
+        <s:attribute name="Val" type="s:string"/>
+        <s:attribute name="ErrorOccurred" type="s:boolean" use="required"/>
+        <s:attribute name="ErrorMessage" type="s:string"/>
+      </s:complexType>
+      <s:complexType name="FetchInjectionUriResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Uri" type="s:long"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DownloadResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Base64Payload" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="DateTimeModified" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="DocumentSize" type="s:int"/>
+              <s:element minOccurs="0" maxOccurs="1" name="FileType" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IsTrimMail" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="TransferType" type="tns:TransferTypeType"/>
+              <s:element minOccurs="0" maxOccurs="1" name="AttachmentId" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="DownloadId" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="MTOMPayload" type="s:base64Binary"/>
+              <s:element minOccurs="1" maxOccurs="1" name="FinalChunk" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ConnectionInfoResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CurrentUserUri" type="s:long"/>
+              <s:element minOccurs="0" maxOccurs="1" name="CurrentUserNickName" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="CurrentUserLogin" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="LicenseNumber" type="s:int"/>
+              <s:element minOccurs="0" maxOccurs="1" name="LicenceeName" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="IsLicensedResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IsLicensed" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="HasLocationRelationshipResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="HasRelationship" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="HasAccessResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfAccessControlItem"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAccessControlItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AccessControlItem" nillable="true" type="tns:AccessControlItem"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccessControlItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Uri" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="HasAccess" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UploadResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="TransferType" type="tns:TransferTypeType"/>
+              <s:element minOccurs="0" maxOccurs="1" name="UploadId" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SuccessResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SearchResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SuccessResult">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FoundCount" type="s:long"/>
+              <s:element minOccurs="0" maxOccurs="1" name="ErrorResult" type="tns:ErrorResult"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ErrorResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ErrorNumber" type="s:int"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="SubstitutionParameters" type="tns:ArrayOfString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EndResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result"/>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TimingResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="TimeConsumed" type="s:long"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ObjectResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Uri" type="s:long"/>
+              <s:element minOccurs="0" maxOccurs="1" name="TrimObjectType" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="GetSuggestedNumberResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Result">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SuggestedNumber" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ExecuteXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteXmlResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListPropertiesXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjectName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListPropertiesXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListPropertiesXmlResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConvertToXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="req" type="tns:TrimRequest"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConvertToXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConvertToXmlResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListPropertiesSoapIn">
+    <wsdl:part name="parameters" element="tns:ListProperties"/>
+  </wsdl:message>
+  <wsdl:message name="ListPropertiesSoapOut">
+    <wsdl:part name="parameters" element="tns:ListPropertiesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ListPropertySoapIn">
+    <wsdl:part name="parameters" element="tns:ListProperty"/>
+  </wsdl:message>
+  <wsdl:message name="ListPropertySoapOut">
+    <wsdl:part name="parameters" element="tns:ListPropertyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ExecuteSoapIn">
+    <wsdl:part name="parameters" element="tns:Execute"/>
+  </wsdl:message>
+  <wsdl:message name="ExecuteSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ExecuteXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteXml"/>
+  </wsdl:message>
+  <wsdl:message name="ExecuteXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteXmlResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ListPropertiesXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ListPropertiesXml"/>
+  </wsdl:message>
+  <wsdl:message name="ListPropertiesXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ListPropertiesXmlResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ConvertToXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ConvertToXml"/>
+  </wsdl:message>
+  <wsdl:message name="ConvertToXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ConvertToXmlResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="EngineSoap">
+    <wsdl:operation name="ListProperties">
+      <wsdl:input message="tns:ListPropertiesSoapIn"/>
+      <wsdl:output message="tns:ListPropertiesSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ListProperty">
+      <wsdl:input message="tns:ListPropertySoapIn"/>
+      <wsdl:output message="tns:ListPropertySoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Execute">
+      <wsdl:input message="tns:ExecuteSoapIn"/>
+      <wsdl:output message="tns:ExecuteSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteXml">
+      <wsdl:input message="tns:ExecuteXmlSoapIn"/>
+      <wsdl:output message="tns:ExecuteXmlSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ListPropertiesXml">
+      <wsdl:input message="tns:ListPropertiesXmlSoapIn"/>
+      <wsdl:output message="tns:ListPropertiesXmlSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertToXml">
+      <wsdl:input message="tns:ConvertToXmlSoapIn"/>
+      <wsdl:output message="tns:ConvertToXmlSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EngineSoap" type="tns:EngineSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ListProperties">
+      <soap:operation soapAction="http://www.towersoft.com/schema/webservice/trim2/ListProperties" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListProperty">
+      <soap:operation soapAction="http://www.towersoft.com/schema/webservice/trim2/ListProperty" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Execute">
+      <soap:operation soapAction="http://www.towersoft.com/schema/webservice/trim2/Execute" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteXml">
+      <soap:operation soapAction="http://www.towersoft.com/schema/webservice/trim2/ExecuteXml" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListPropertiesXml">
+      <soap:operation soapAction="http://www.towersoft.com/schema/webservice/trim2/ListPropertiesXml" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertToXml">
+      <soap:operation soapAction="http://www.towersoft.com/schema/webservice/trim2/ConvertToXml" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EngineSoap12" type="tns:EngineSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ListProperties">
+      <soap12:operation soapAction="http://www.towersoft.com/schema/webservice/trim2/ListProperties" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListProperty">
+      <soap12:operation soapAction="http://www.towersoft.com/schema/webservice/trim2/ListProperty" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Execute">
+      <soap12:operation soapAction="http://www.towersoft.com/schema/webservice/trim2/Execute" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteXml">
+      <soap12:operation soapAction="http://www.towersoft.com/schema/webservice/trim2/ExecuteXml" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListPropertiesXml">
+      <soap12:operation soapAction="http://www.towersoft.com/schema/webservice/trim2/ListPropertiesXml" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertToXml">
+      <soap12:operation soapAction="http://www.towersoft.com/schema/webservice/trim2/ConvertToXml" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Engine">
+    <wsdl:port name="EngineSoap" binding="tns:EngineSoap">
+      <soap:address location="http://127.0.0.1/trimws/trim.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="EngineSoap12" binding="tns:EngineSoap12">
+      <soap12:address location="http://127.0.0.1/trimws/trim.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
