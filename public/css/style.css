@@ -108,6 +108,11 @@ i.fa {
   margin: 1.5em 0 0 0;
 }
 
+.page-content h3 {
+  font-size: 15pt;
+  font-weight: bold;
+}
+
 .page-content p, .page-content ul, .content dl {
   margin: 0.8em 0;
 }
