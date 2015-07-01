@@ -1,5 +1,6 @@
 ---
 author: Ben Basson
+authorurl: http://plus.google.com/107880308657806834664
 title: TRIM Web Service
 subtext: Banging my head against a documentation wall.
 date: 2015-06-24T21:25:26 +1

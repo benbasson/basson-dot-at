@@ -1,5 +1,6 @@
 ---
 author: Ben Basson
+authorurl: http://plus.google.com/107880308657806834664
 title: Great British Beer Festival 2014 Strategy
 subtext: My top picks for the GBBF 2014
 date: 2014-08-14T08:15:12 +1
