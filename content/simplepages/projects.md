@@ -11,7 +11,7 @@ Here are some of the things I've worked on that are interesting but probably don
 iSomething
 ----------
 
-Web page: [http://www.isomething.co.uk][1]
+Web page: [http://www.isomething.co.uk][1]  
 GitHub repository: [iSomething source][2]
 
 This is a quickly hacked together replacement for [iGoogle][3], or at least how I had configured it.
@@ -28,7 +28,9 @@ Some of the code is a bit ugly, but this was one of my earlier forays into using
 The Sinatra One Time Password Service
 -------------------------------------
 
-GitHub repository: [sinatra-rotp][5]
+Web page: [http://sinatra-rotp.herokuapp.com/][12]  
+GitHub repository: [sinatra-rotp][5]  
+Blog post: [Multi-factor authentication and Sinatra ROTP][13]
 
 As part of the [Fivium Hack Day 2015][6], I knocked up a little [REST][7] API that can be used to easily plug in a multi-factor authentication mechanism to any existing web application. For anyone not familiar with multi-factor authentication, it's essentially just having additional known secret(s) to log into a system, usually a password and one other mechanism, such as the code from a [security token][8] or [grid card][9], and so on. 
 
@@ -58,3 +60,5 @@ Please see the [about][4] section.
 [9]: https://codetechnology.wordpress.com/2007/09/17/bingo-cards/
 [10]: https://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm
 [11]: https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_GB
+[12]: http://sinatra-rotp.herokuapp.com/
+[13]: /blog/multi-factor-auth-sinatra-rotp
