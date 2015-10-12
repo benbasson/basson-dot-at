@@ -60,8 +60,8 @@ contribute.
 [5]: /firefox-addons/contexthighlight
 [6]: /firefox-addons/foobarcontrols
 [7]: /firefox-addons/pastequote
-[8]: http://goo.gl/p7YKIx
-[9]: http://goo.gl/ebGIqb
-[10]: http://goo.gl/kZn14r
-[11]: http://goo.gl/QvL1If
+[8]: https://goo.gl/8QhZ61
+[9]: https://goo.gl/hxHMBk
+[10]: https://goo.gl/ePGR7c
+[11]: https://goo.gl/RuYIIQ
 [12]: https://github.com/benbasson/
