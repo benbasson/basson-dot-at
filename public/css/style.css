@@ -203,6 +203,14 @@ i.fa {
   color: #4099FF !important;
 }
 
+.linkedinlink i {
+  color: #1D87BD !important;
+}
+
+.stackoverflowlink i {
+  color: #F48024 !important;
+}
+
 .footer a {
   padding: 0.5em;
 }
