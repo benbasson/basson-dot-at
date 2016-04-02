@@ -13,6 +13,11 @@ gem 'hashugar'
 gem 'httparty'
 gem 'rack-contrib'
 
+# to deal with cross-platform development issues, currently using forked variant
+group :development do
+  gem 'git-version-bump', :git => 'https://github.com/benbasson/git-version-bump.git', :branch => 'windows-compatibility', :platform => :mswin
+end
+
 group :production do
   gem 'newrelic_rpm'
 end
