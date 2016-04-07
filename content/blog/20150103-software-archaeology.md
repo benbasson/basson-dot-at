@@ -36,7 +36,13 @@ Small bug fixes and changes may be possible without having a deep understanding 
 Rewrites don't happen
 ---------------------
 
-A recent [Dilbert][2] comic nicely illustrates the familiar knee-jerk reaction of basically all developers to inheriting someone else's code. It's certainly something I've witnessed on many occasions. Unfortunately for most developers... rewrites almost never happen.
+A recent [Dilbert][2] comic nicely illustrates the familiar knee-jerk reaction of basically all developers to inheriting someone else's code:
+
+<a href="/images/blog/dilbert-rewrite.gif" target="_blank" markdown="1">
+  <img src="/images/blog/dilbert-rewrite.gif" width="600" height="187" alt="Dilbert Comic Strip, 12th August 2014" markdown="1">
+</a>
+
+It's certainly something I've witnessed on many occasions. Unfortunately for most developers... rewrites almost never happen.
 
 There are many reasons why this is the case. Joel Spolsky's [Things You Should Never Do][3] blog post from April 2000 sums up the situation quite nicely and is still highly relevant today. Paraphrasing his mini-essay into bullet-point form:
 
