@@ -44,11 +44,11 @@ That's a decision you'll have to make yourself, but please follow this blog seri
 What topics will be covered?
 ----------------------------
 
-I'll be publishing these posts weekly over the next 8 weeks:
+I'll be publishing these posts weekly over the next 8(ish) weeks:
 
 * [Thing 1 - Writing code for the long term][2]
-* Thing 2 - Proper teamwork
-* Thing 3 - Regression matters
+* [Thing 2 - Proper teamwork][3]
+* [Thing 3 - Regression matters][4]
 * Thing 4 - You will ship code with bugs
 * Thing 5 - Presenting your work effectively
 * Thing 6 - Thinking retrospectively
@@ -57,6 +57,7 @@ I'll be publishing these posts weekly over the next 8 weeks:
 
 [1]: http://www.fivium.co.uk
 [2]: /blog/writing-code-for-the-long-term
-
+[3]: /blog/proper-teamwork
+[4]: /blog/regressions-matter
 
 
