@@ -48,8 +48,8 @@ I'll be publishing these posts weekly over the next 8(ish) weeks:
 
 * [Thing 1 - Writing code for the long term][2]
 * [Thing 2 - Proper teamwork][3]
-* [Thing 3 - Regression matters][4]
-* Thing 4 - You will ship code with bugs
+* [Thing 3 - Regressions matter][4]
+* [Thing 4 - You will ship code with bugs][5]
 * Thing 5 - Presenting your work effectively
 * Thing 6 - Thinking retrospectively
 * Thing 7 - Consuming APIs and libraries
@@ -59,5 +59,5 @@ I'll be publishing these posts weekly over the next 8(ish) weeks:
 [2]: /blog/writing-code-for-the-long-term
 [3]: /blog/proper-teamwork
 [4]: /blog/regressions-matter
-
+[5]: /blog/you-will-ship-code-with-bugs
 
