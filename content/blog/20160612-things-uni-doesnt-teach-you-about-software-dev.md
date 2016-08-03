@@ -51,7 +51,7 @@ I'll be publishing these posts weekly over the next 8(ish) weeks:
 * [Thing 3 - Regressions matter][4]
 * [Thing 4 - You will ship code with bugs][5]
 * [Thing 5 - Presenting your work effectively][6]
-* Thing 6 - Thinking retrospectively
+* [Thing 6 - Thinking retrospectively][7]
 * Thing 7 - Consuming APIs and libraries
 * A retrospective on my university experience
 
@@ -61,3 +61,4 @@ I'll be publishing these posts weekly over the next 8(ish) weeks:
 [4]: /blog/regressions-matter
 [5]: /blog/you-will-ship-code-with-bugs
 [6]: /blog/presenting-your-work-effectively
+[7]: /blog/thinking-retrospectively
