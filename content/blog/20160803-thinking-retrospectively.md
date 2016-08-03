@@ -33,7 +33,7 @@ Perhaps, the most key component of effective agile working is regularly holding 
 
 So how does "a retrospective" (the meeting) actually work? 
 
-It varies from team to team, but the over-arching format should look ask questions like:
+It varies from team to team, but the over-arching format should look to ask questions like:
 
 * What we did well
 * What we didn't do well
@@ -57,7 +57,7 @@ There are a few things that are key to running a good retrospective session...
 
 Firstly, it must be chaired by someone who will keep things moving along, rather than descending into uncontrolled discussions. The point of a retrospective is to identify problems and come up with solutions, not to discuss everything in incredible detail. If the meeting takes more than 30-40 minutes, put down an action item to run your retrospectives more effectively!
 
-Secondly, you need to quantify the feedback. If you're using post-it suggestions from everyone involved, you could use [affinity sorting][6] to help you organise and understand the importance of each topic discussed. 
+Secondly, you need to quantify the feedback. If you're using post-it suggestions from everyone involved, you could use [affinity sorting][6] to help organise and understand the importance of each topic discussed. 
 
 Thirdly, you must take down actions that are reasonable to try and address in the next sprint (or other measure of time). You shouldn't see issues coming up again and again in retrospectives, otherwise you're not continuously improving, you're just continuously moaning.
 
@@ -77,7 +77,7 @@ How could this be introduced?
 
 I'm no fan of [forced group work][8], but regardless of how work was undertaken (individually or as part of a team), there's a huge amount of merit in reflecting on what you've achieved. However, in situations where forced group work has been *inflicted*, then it would make sense for retrospectives to be run on a regular basis. I would suggest that lecturers or PHD students run these sessions as facilitators to make sure that they happen, and to assist with sensible actions.
 
-Where work is performed individually, it's still reasonable for students to get together in groups to discuss how they're getting on. Again, this could be facilitated as above, but even if it's not, it's a useful thing to do.
+Where work is performed individually, it's still reasonable for students to get together in groups to discuss how they're getting on. Again, this could be facilitated as above, but even if it's not, it's a useful thing to do independently.
 
 In addition, I would suggest that lecturers or mentoring PHD students could run mini retrospectives at the end of lab sessions to summarise the lesson and to get useful feedback for next time. Lab sessions themselves provide a chance for students to iteratively improve their understanding of a given topic, and it seems wasteful not to actually check this is happening as effectively as it could be.
 
