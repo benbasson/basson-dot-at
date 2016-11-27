@@ -6,8 +6,9 @@ class ContentProvider
   attr_accessor :metadata, :content
   
   def initialize filepath
-    metadata, @content = Preamble.load filepath, {:external_encoding => 'UTF-8'}
-    @metadata = metadata.to_hashugar
+    preamble = Preamble.load filepath, {:external_encoding => 'UTF-8'}
+    @content = preamble.content
+    @metadata = preamble.metadata.to_hashugar
   end
   
   def headtitle
