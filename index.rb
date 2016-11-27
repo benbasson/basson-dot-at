@@ -2,15 +2,10 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'haml'
 require 'kramdown'
-require 'active_support/core_ext/time'
-require 'active_support/core_ext/integer/inflections'
-require 'active_support/core_ext/string/conversions'
-require 'action_view/helpers/number_helper'
+require 'active_support/all'
 
 require_relative 'models/init'
 require_relative 'kramdown_monkeypatch'
-
-include ActionView::Helpers::NumberHelper
 
 configure :production do
   require 'newrelic_rpm'

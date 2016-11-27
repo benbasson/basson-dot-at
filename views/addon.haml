@@ -23,9 +23,9 @@
           %p
             Last Updated: #{@page.github_versions.first.published_at.to_datetime.strftime('%d/%m/%Y')}
           %p
-            Average Daily Users: #{number_with_delimiter(@page.addon_data.daily_users)}
+            Average Daily Users: #{ActiveSupport::NumberHelper::number_to_delimited(@page.addon_data.daily_users)}
           %p
-            Total Downloads: #{number_with_delimiter(@page.addon_data.total_downloads)}
+            Total Downloads: #{ActiveSupport::NumberHelper::number_to_delimited(@page.addon_data.total_downloads)}
     = markdown @page.content
     %h2 
       Changelog
