@@ -44,7 +44,7 @@ That's a decision you'll have to make yourself, but please follow this blog seri
 What topics will be covered?
 ----------------------------
 
-I'll be publishing these posts weekly over the next 8(ish) weeks:
+I'll be publishing these posts over the coming months:
 
 * [Thing 1 - Writing code for the long term][2]
 * [Thing 2 - Proper teamwork][3]
@@ -53,6 +53,7 @@ I'll be publishing these posts weekly over the next 8(ish) weeks:
 * [Thing 5 - Presenting your work effectively][6]
 * [Thing 6 - Thinking retrospectively][7]
 * Thing 7 - Consuming APIs and libraries
+* Thing 8 - Project planning and scale
 * A retrospective on my university experience
 
 [1]: http://www.fivium.co.uk
