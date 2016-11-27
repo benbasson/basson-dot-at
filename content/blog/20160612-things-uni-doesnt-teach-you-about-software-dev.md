@@ -52,7 +52,7 @@ I'll be publishing these posts over the coming months:
 * [Thing 4 - You will ship code with bugs][5]
 * [Thing 5 - Presenting your work effectively][6]
 * [Thing 6 - Thinking retrospectively][7]
-* Thing 7 - Consuming APIs and libraries
+* [Thing 7 - Consuming APIs and libraries][8]
 * Thing 8 - Project planning and scale
 * A retrospective on my university experience
 
@@ -63,3 +63,4 @@ I'll be publishing these posts over the coming months:
 [5]: /blog/you-will-ship-code-with-bugs
 [6]: /blog/presenting-your-work-effectively
 [7]: /blog/thinking-retrospectively
+[8]: /blog/consuming-apis-and-libraries
