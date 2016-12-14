@@ -53,7 +53,7 @@ I'll be publishing these posts over the coming months:
 * [Thing 5 - Presenting your work effectively][6]
 * [Thing 6 - Thinking retrospectively][7]
 * [Thing 7 - Consuming APIs and libraries][8]
-* Thing 8 - Project planning and scale
+* [Thing 8 - Project planning and scale][9]
 * A retrospective on my university experience
 
 [1]: http://www.fivium.co.uk
@@ -64,3 +64,4 @@ I'll be publishing these posts over the coming months:
 [6]: /blog/presenting-your-work-effectively
 [7]: /blog/thinking-retrospectively
 [8]: /blog/consuming-apis-and-libraries
+[9]: /blog/project-planning-and-scale
