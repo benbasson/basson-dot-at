@@ -54,7 +54,7 @@ I'll be publishing these posts over the coming months:
 * [Thing 6 - Thinking retrospectively][7]
 * [Thing 7 - Consuming APIs and libraries][8]
 * [Thing 8 - Project planning and scale][9]
-* A retrospective on my university experience
+* [A retrospective on my university course][10]
 
 [1]: http://www.fivium.co.uk
 [2]: /blog/writing-code-for-the-long-term
@@ -65,3 +65,4 @@ I'll be publishing these posts over the coming months:
 [7]: /blog/thinking-retrospectively
 [8]: /blog/consuming-apis-and-libraries
 [9]: /blog/project-planning-and-scale
+[10]: /blog/a-retrospective-on-my-university-course
