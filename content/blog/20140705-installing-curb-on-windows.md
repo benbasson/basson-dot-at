@@ -71,7 +71,9 @@ Install libcurl
 
 As I used the 32-bit DevKit, I also needed the 32-bit version of libcurl. 
 
-Curiously, the MinGW32 version isn't listed on the [libcurl download page][8], but if you poke around and use some intelligent URL guesswork, you'll find it listed here: [http://curl.haxx.se/gknw.net/7.34.0/dist-w32/][9] (7.34 is the current version at the time of writing, you may want to look for a newer release).
+Curiously, the MinGW32 version isn't listed on the [libcurl download page][8], but if you poke around and use some intelligent URL guesswork, you'll find it listed here: <del>[http://curl.haxx.se/gknw.net/7.34.0/dist-w32/][9] (7.34 is the current version at the time of writing, you may want to look for a newer release).</del>
+
+**Update 30/04/2017:** It seems as though links to older versions aren't preserved, but you can reliably access [https://curl.haxx.se/gknw.net/][10] and then simply navigate via the version-numbered folder (e.g. "7.40.0") to the "dist-w32" subfolder. Inside this you'll find the MinGW binaries. 
 
 Simply extract the archive you download; I installed libcurl at `C:\libcurl-7.34.0`
 
@@ -142,3 +144,4 @@ I'm sure I'm not the only Windows-based developer trying to use Ruby gems with n
 [7]: http://wiki.github.com/oneclick/rubyinstaller/development-kit
 [8]: http://curl.haxx.se/download.html
 [9]: http://curl.haxx.se/gknw.net/7.34.0/dist-w32/
+[10]: https://curl.haxx.se/gknw.net/
