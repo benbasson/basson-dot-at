@@ -1,4 +1,5 @@
 require 'httparty'
+require 'json'
 require_relative 'content_provider'
 
 class AddonContentProvider < ContentProvider
@@ -19,12 +20,12 @@ class AddonContentProvider < ContentProvider
     # Pull data from GitHub releases 
     github_versions = AddonContentProvider.get("https://api.github.com/repos/#{@metadata.githubrepo}/releases?client_id=#{client_id}&client_secret=#{client_secret}", {
       # GitHub API mandates that UserAgent must be sent
-      :headers => {"User-Agent" => 'HTTParty (basson.at)'}
+      :headers => {"User-Agent" => 'HTTParty (basson.at)', "Accept" => 'application/json'}
     })
-    
+
     # Convert everything to Hashugar objects for easy referencing
     @addon_data = amo_data['addon'].to_hashugar
-    @github_versions = github_versions.to_hashugar
+    @github_versions = JSON.parse(github_versions.body).to_hashugar
     
     # As this has nested content, need to dereference 
     @addon_data.install = @addon_data.install.__content__

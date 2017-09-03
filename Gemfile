@@ -13,6 +13,7 @@ gem 'preamble'
 gem 'hashugar'
 gem 'httparty'
 gem 'rack'
+gem 'json'
 
 group :production do
   gem 'newrelic_rpm'
