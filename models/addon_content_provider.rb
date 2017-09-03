@@ -12,9 +12,12 @@ class AddonContentProvider < ContentProvider
 
     # Pull data from the Mozilla Add-ons site  
     amo_data = AddonContentProvider.get("https://services.addons.mozilla.org/en-US/firefox/api/1.5/addon/#{@metadata.addonid}")
-    
+
+    client_id = ENV['GITHUB_CLIENT_ID'] || File.read('.github-client-id')
+    client_secret = ENV['GITHUB_CLIENT_SECRET'] || File.read('.github-client-secret')
+
     # Pull data from GitHub releases 
-    github_versions = AddonContentProvider.get("https://api.github.com/repos/#{@metadata.githubrepo}/releases", {
+    github_versions = AddonContentProvider.get("https://api.github.com/repos/#{@metadata.githubrepo}/releases?client_id=#{client_id}&client_secret=#{client_secret}", {
       # GitHub API mandates that UserAgent must be sent
       :headers => {"User-Agent" => 'HTTParty (basson.at)'}
     })

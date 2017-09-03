@@ -2,3 +2,5 @@
 .settings
 .bundle
 .idea
+.github-client-id
+.github-client-secret
